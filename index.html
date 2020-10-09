@@ -1,0 +1,420 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Technological Perspective on Human&#8209;aware Navigation Algorithms</title>
+		<meta name="description" content="Technological Perspective on Human&#8209;aware Navigation Algorithms">
+		<meta name="author" content="Luis J. Manso">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="white-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/aston.css">
+		<link rel="stylesheet" href="lib/css/monokai.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<link rel="stylesheet" href="mycss.css">
+		</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<div class="header f90" id="header"></div>
+<div class="footer_left f90" id="footer_left"><small>Luis J. Manso &lt;l.manso@aston.ac.uk&gt;</small></div>
+<div class="footer_right" id="footer_right"><img src="img/eas.png" border="0" width="200px" /></div>
+<!-- SLIDES START HERE -->
+<!-- SLIDES START HERE -->
+<!-- SLIDES START HERE -->
+<!-- SLIDES START HERE -->
+<!-- SLIDES START HERE -->
+<section>
+<h2>Technological Perspective on Human&#8209;aware Navigation Algorithms</h2>
+<div class="F">Perspectives on Human&#8209;aware Navigation</div>
+<div class="f"> International Conference on Social Robotics </div>
+<div class="mf">Madrid, 26 November 2019</div>
+</section>
+
+
+<section>
+<h3>Motivation:</h3>
+<div style="position:fixed; z-index:1000; top: 0%; left: 12%; height: 100%; width:100%;">
+<!-- <img class="fragment centredimage fade-in-then-out" data-fragment-index="2" src="img/eas.png"  /> -->
+<img class="fragment centredimage fade-in-then-out" data-fragment-index="1" src="img/GMMs.png"  />
+</div>
+<h4 class="alignleft">Facts:</h4>
+<ul>
+<li class="fragment hlight" data-fragment-index="2">Increasing number of factors to consider</li>
+<li class="fragment hlight" data-fragment-index="3">Increasing code complexity</li>
+</ul>
+<br/>
+<h4 class="alignleft">Questions:</h4>
+<ul>
+<li class="fragment hlight" data-fragment-index="4">Wouldn't ML be easier and more cost-efficient?</li>
+<li class="fragment hlight" data-fragment-index="5">Do humans consider factors unknowingly? <small>(people might be unaware of other factors)</small></li>
+</ul>
+</section>
+
+
+
+<section>
+<h3>Not any ML algorithm is enough!</h3>
+<ul>
+<li class="fragment hlight" data-fragment-index="1">Heterogeneous: many factors</li>
+<li class="fragment hlight" data-fragment-index="2">A variable number of people</li>
+<li class="fragment hlight" data-fragment-index="3">A variable environment, including objects</li>
+<li class="fragment hlight" data-fragment-index="4">A variable number of interactions</li>
+<li class="fragment hlight" data-fragment-index="5">A variable number of <b>types of</b> interactions</li>
+<li class="fragment hlight" data-fragment-index="6">Indeterminately complex &amp; structured relationships</li>
+</ul>
+</section>
+
+
+<section>
+<h3>ML: Handcrafted features?</h3>
+<ul>
+<li class="fragment hlight" data-fragment-index="1">Variables considered: we can let ML learn to select</li>
+<li class="fragment hlight" data-fragment-index="2">How to come up with features for the previous data?</li>
+    <ul>
+    <li class="fragment hlight" data-fragment-index="3">A variable number of people</li>
+    <li class="fragment hlight" data-fragment-index="3">A variable environment, including objects</li>
+    <li class="fragment hlight" data-fragment-index="3">A variable number of interactions</li>
+    <li class="fragment hlight" data-fragment-index="3">A variable number of <b>types of</b> interactions</li>
+    <li class="fragment hlight" data-fragment-index="3">Indeterminately complex &amp; structured relationships</li>
+    </ul>
+</ul>
+</section>
+
+<section>
+<h3>ML: End-to-end learning?</h3>
+<ul>
+<li class="fragment hlight" data-fragment-index="1">E2E doesn't have <b>some</b> the mentioned problems</li>
+<li class="fragment hlight" data-fragment-index="2">They have <b>other</b> problems</li>
+	<ul>
+		<li class="fragment hlight" data-fragment-index="2">Huge amounts of data</li>
+		<li class="fragment hlight" data-fragment-index="3">Computation resources<small>(especially but not only for training)</small></li>
+		<li class="fragment hlight" data-fragment-index="4"><b style="text-decoration: underline">How to deal with structured data?</b></li>
+	</ul>
+</ul>
+</section>
+
+<section>
+<h3>Graph Neural Networks</h3>
+Function approximators which take graphs as input<br/>
+<img src="img/GNN_LAYER_c.png" />
+</section>
+
+<!--
+<section>
+<h3>Graph Neural Networks</h3>
+Idea, limitation of GCN &amp; alternatives using an image.
+<img src="img/GNN_LAYER.png" />
+</section>
+-->
+
+<section>
+<h3>Graph Neural Networks for <br /> Human-aware Navigation</h3>
+<ul>
+    <li class="fragment hlight" data-fragment-index="1">Improve accuracy of other ML algorithms</li>
+    <li class="fragment hlight" data-fragment-index="2">Improve scalability<small>(how can we increase the number of variables to consider?)</small></li>
+</ul>
+</section>
+<section>
+<h3>Graph Neural Networks for <br /> Human-aware Navigation</h3>
+<ul>
+<li class="fragment hlight" data-fragment-index="1">Model proxemics / inconvenience</li>
+<li class="fragment hlight" data-fragment-index="2">Predict people's movements</li>
+<li class="fragment hlight" data-fragment-index="3">Control robot's movements</li>
+<li class="fragment hlight" data-fragment-index="4">Detect &amp; predict behaviours/events</li>
+</ul>
+</section>
+
+<section>
+    <section>
+        <h3>SocNav1 Tool</h3>
+        <div style="position:fixed; z-index:1000; top: 0%; left: 12%; height: 100%; width:100%;">
+        <!-- <img class="fragment centredimage fade-in-then-out" data-fragment-index="2" src="img/eas.png"  /> -->
+        <img class="fragment centredimage fade-in-then-out" data-fragment-index="2" src="img/scenario_d.jpg"  />
+        </div>
+        <ul>
+        <li class="fragment hlight" data-fragment-index="1">The idea of the dataset</li>
+        <li class="fragment hlight" data-fragment-index="2">Screenshot</li>
+        <li class="fragment hlight" data-fragment-index="3">Labelled scenarios: 9280</li>
+        <li class="fragment hlight" data-fragment-index="4">Limitations</li>
+            <ul>
+                <li class="fragment hlight" data-fragment-index="4">Humans are static</li>
+                <li class="fragment hlight" data-fragment-index="4">One type of interaction</li>
+                <li class="fragment hlight" data-fragment-index="4">We are told <em>"how people <b>think</b> they <b>would</b> feel"</em></li>
+            </ul>
+        </ul>
+    </section>
+
+    <section data-background="#cacacc">
+        <h2>SocNav1 Results</h2>
+        <img src="img/labelling_1.png" />
+    </section>
+
+    <section data-background="#cacacc">
+        <h2>SocNav1 Results</h2>
+        <img src="img/labelling_2.png" />
+    </section>
+</section>
+
+
+<section>
+    <h3>Experiment with GNNs &amp; SocNav1 dataset</h3>
+    <div class="left25 f65">
+        <ul>
+            <li>w-r:<br/>world&rarr;room</li>
+            <li>r-R:<br/>room&rarr;robot</li>
+            <li>h-R:<br/>human&rarr;robot</li>
+            <li>o-R:<br/>object&rarr;robot</li>
+            <li><b style="text-decoration: underline;">h-h:</b><br/>human&rarr;human</li>
+            <li><b style="text-decoration: underline;">h-o:</b><br/>human&rarr;object</li>
+        </ul>
+    </div>
+    <div class="right75">
+        <img src="img/sngnn_graph.png"/>
+    </div>
+</section>
+
+<section>
+<h3>Social Navigation Graph Neural Network (SNGNN)</h3>
+    <video width="650" height="450" controls>
+        <source data-src="video/sndgyt.mp4" type="video/mp4" /> Your browser does not support the video tag.
+    </video>
+    <br />
+    <b><smal2l class="blink">SNGNN MSE: 0.03173 (humans 0.02929)</small> </b>
+</section>
+
+<section>
+<h3>Social Navigation Graph Neural Network (SNGNN)</h3>
+    <video width="850" height="450" controls>
+        <source data-src="video/sngnn.webm" type="video/webm" />Your browser does not support the video tag.
+    </video>
+</section>
+
+<section>
+<h3>Results: Personal Spaces &amp; Interactions</h3>
+<div class="acho">
+		<ul>
+		<li class="fragment hlight f80" data-fragment-index="1">Personal spaces</li>
+		<li class="fragment hlight f80" data-fragment-index="2">Interactions</li>
+		</ul>
+		<div style="position:relative; width:85%; height:700px; margin:0 auto;">
+			<div class="fragment current-visible" data-fragment-index="1"><img class="replace" src="img/showcase_1_basic_000.png" /></div>
+			<div class="fragment current-visible" data-fragment-index="2"><img class="replace" src="img/showcase_1_basic_001.png" /></div>
+		</div>
+</div>
+</section>
+
+<section>
+<h3>Results: Distance between two interacting people</h3>
+  <video width="800" height="400" controls>
+    <source data-src="video/showcase_7_1.webm" type="video/webm" />
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+
+<section>
+<h3>Results: Impact of walls</h3>
+  <video width="800" height="400" controls>
+    <source data-src="video/showcase_2_1.webm" type="video/webm" />
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+
+<section>
+<h3>Results: Impact of incrementing the number of people in a room</h3>
+  <video width="800" height="400" controls>
+    <source data-src="video/showcase_3_3.webm" type="video/webm" />
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+
+<section>
+<h3>Results: Angle when approaching interacting people</h3>
+  <video width="800" height="400" controls>
+    <source data-src="video/showcase_5_1.webm" type="video/webm" />
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+<section>
+    <h2>Other works using GNNs</h2>
+</section>
+
+<section>
+    <section>
+        <h3 class="f90">Relational Graph Learning for Crowd Navigation</h3>
+        <small class="f90">C. Chen, S. Hu, P. Nikdel, G. Mori, M. Savva</small>
+<!--            <div style="text-align: left; position:absolute; bottom: 68%; left: 5%; width: 70%; color: red ">
+                <small class="f50">
+                    Predict people's interaction and trajectories to plan robot's trajectory using collision avoidance.
+                    The bit using the GNN is the trajectory prediction.
+                </small>
+            </div>-->
+        <img src="img/other_chen_et_al_2.png" />
+    </section>
+    
+    <section data-background="#cacacc">
+        <video id="videoChen" width="800" height="500" controls muted >
+            <source data-src="video/other_chen_et_al.webm" type="video/webm" />
+            Your browser does not support the video tag.
+        </video>
+        <script>
+            document.getElementById('videoChen').addEventListener('loadedmetadata', function() { this.currentTime = 107; }, false);
+        </script> 
+        <small>(source: <a href="https://www.youtube.com/watch?v=U3quW30Eu3A">https://www.youtube.com/watch?v=U3quW30Eu3A</a>)</small>
+        <div class="references">
+                <ul>
+                        <li>
+                            <b>Relational Graph Learning for Crowd Navigation</b>. <em>Changan Chen, Sha Hu, Payam Nikdel, Greg Mori, Manolis Savva</em>. arXiv preprint arXiv:1909.13165. 2019.
+                        </li>
+                </ul>
+        </div>
+    </section>
+</section>
+
+
+<section>
+    <section>
+        <h3 class="f90">Learning Human-Object Interactions by Graph Parsing Neural Networks</h3>
+        <small  class="f90">S. Qi, W. Wang, B. Jia, J. Shen, S.-C. Zhu</small>
+        <img src="img/other_qi_et_al.png" />
+    </section>
+    
+</section>
+
+
+<!--
+ ***
+ *** CONCLUSIONS
+ ***
+-->
+<section>
+<h2>Conclusions</h2>
+<ul class="f80">
+<li>New dataset</li>
+<li>We will be hearing more about GNNs</li>
+</ul>
+<img src="img/trend_gnns.png" style="width: 70%" />
+</section>
+
+<!--
+ ***
+ *** QUESTIONS
+ ***
+-->
+<section>
+    <section>
+        <h3 class="f95">References</h3>
+        <div class="references">
+            <p style="text-align: left"><b>Graph Neural Networks:</b></p>
+            <ul>
+                <li><b>Semi-Supervised Classification with Graph Convolutional Networks</b>. <em>T.N. Kipf, M. Welling</em>. arXiv preprint arXiv:1609.02907. 2017.</li>
+                <li><b>Relational inductive biases, deep learning, and graph networks</b>. <em>P.W. Battaglia et al.<!--, J.B. Hamrick, V. Bapst, A. Sanchez-Gonzalez, V. Zambaldi, M. Malinowski, A. Tacchetti, D. Raposo, A. Santoro, R. Faulkner, C. Gulcehre, F. Song, A. Ballard, J. Gilmer, G. Dahl, A. Vaswani, K. Allen, C. Nash, V. Langston, C. Dyer, N. Heess, D. Wierstra, P. Kohli, M. Botvinick, O. Vinyals, Y. Li, R. Pascanu--></em>. arXiv preprint arXiv:1806.01261. 2018.</li>
+            </ul>
+            <p style="text-align: left"><b>Applications:</b></p>
+            <ul>
+                <li><b>Graph Neural Networks for Human-aware Social Navigation</b>. <em>L.J. Manso, R.R. Jorvekar, D.R. Faria, P. Bustos, P. Bachiller</em>. arXiv preprint arXiv:1909.09003. 2019.</li>
+                <li><b>SocNav1: A Dataset to Benchmark and Learn Social Navigation Conventions</b>. <em>L.J. Manso, P. Nunez, L.V. Calderita, D.R. Faria, P. Bachiller</em>. arXiv preprint arXiv:1909.02993. 2019.</li>
+                <li><b>Learning Human-Object Interactions by Graph Parsing Neural Networks</b>.<em>S. Qi, W. Wang, B. Jia, J. Shen, S.-C. Zhu</em>. arXiv:1808.07962. 2018.</li>
+                <li><b>Relational Graph Learning for Crowd Navigation</b>. <em>C. Chen, S. Hu, P. Nikdel, G. Mori, M. Savva</em>. arXiv preprint arXiv:1909.13165. 2019.</li>
+            </ul>
+            <p style="text-align: left !important"><b>Slides: </b> &nbsp; <a href="https://ljmanso.com/perspectives/">https://ljmanso.com/perspectives/</a></p>
+        </div>
+    </section>
+    
+<!--    <section data-background="#cacacc">
+        <h2>How does learning work on GNNs?</h2>
+    </section>
+    <section data-background="#cacacc">
+        <h2>SNGNN API?</h2>
+    </section>-->
+    <section data-background="#cacacc">
+    <h2>Task Planning <br /> &amp; <br /> Human-aware navigation</h2>
+    </section>
+
+    <section data-background="#cacacc">
+    <h3>Asking for permission &amp; Asking for collaboration</h3>
+        <video id="videoVega1" width="800" height="500" controls muted >
+            <source data-src="video/vega_et_al.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        <script>
+            document.getElementById('videoVega1').addEventListener('loadedmetadata', function() { this.currentTime = 11; }, false);
+        </script> 
+    </section>
+<!--    <section data-background="#cacacc">
+        <h3>Shouldn't robots anticipate to people needs?</h3>
+        <p class="fragment hlight" data-fragment-index="1">Model proxemics / inconvenience</p>
+    </section>-->
+</section>
+
+
+
+<!-- SLIDES END HERE -->
+<!-- SLIDES END HERE -->
+<!-- SLIDES END HERE -->
+<!-- SLIDES END HERE -->
+<!-- SLIDES END HERE -->
+
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+		Reveal.addEventListener( 'slidechanged', function( event ) {
+			var header = document.getElementById("header");
+			var footer_left = document.getElementById("footer_left");
+			var footer_right = document.getElementById("footer_right");
+			if (event.indexh == 0) {
+				header.innerHTML = "";
+// 				footer_left.innerHTML = "";
+// 				footer_right.innerHTML = "";
+			}
+			else
+			{
+				header.innerHTML = "<small>Technological Perspective on Human&#8209;aware Navigation Algorithms</small>";
+				footer_left.innerHTML = "<small>Luis J. Manso &lt;l.manso@aston.ac.uk&gt;</small>";
+				footer_right.innerHTML = "<img src=\"img/eas.png\" border=\"0\" width=\"200px\" />";
+			}
+		} );
+
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				slideNumber: true,
+				mouseWheel: true,
+				history: false,
+				center: true,
+				hideInactiveCursor: true,
+				hideCursorTime: 1000,
+				hideAddressBar: true,
+				hash: true,
+				viewDistance: 3,
+				transition: 'concave', // slide/convex/concave/zoom
+				transitionSpeed: 'fast',
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
